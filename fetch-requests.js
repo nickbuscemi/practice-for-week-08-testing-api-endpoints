@@ -10,6 +10,15 @@ Paste your code for fetch requests here once you finish each task.
 */
 
 // Your code here
+(async function () {
+  try {
+    const response = await fetch('/posts');
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error', error);
+  }
+})();
 
 
 
@@ -20,3 +29,20 @@ Paste your code for fetch requests here once you finish each task.
 */
 
 // Your code here
+(async function() {
+  try {
+    const response = await fetch('/posts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        message: 'New Post!',
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+})();
